@@ -1,0 +1,22 @@
+{
+  "name": "imc",
+  "version": "1.0.0",
+  "description": "Programa que calcula o Indice de Massa Comporal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: a mensagem aqui é constumizavel\" && exit 1",
+    "start": "node index.js",
+    "debug": "node index.js",
+    "karate": ""
+  },
+  "keywords": [
+    "imc",
+    "calculo",
+    "peso"
+  ],
+  "author": "André Soares",
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
