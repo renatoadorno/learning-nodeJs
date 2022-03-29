@@ -4,7 +4,7 @@ const connection = mysql.createPool({
   user: 'root',
   password: 'admin',
   host: 'localhost',
-  database: 'model_axample'
+  database: 'model_example'
 });
 
 module.exports = connection;
