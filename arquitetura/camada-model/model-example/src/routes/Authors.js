@@ -8,5 +8,6 @@ const {
 const router = express.Router();
 
 router.get('/', authorsGetAll)
+router.get('/:id', authorsGetById)
 
 module.exports = router;
