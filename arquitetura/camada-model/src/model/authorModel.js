@@ -37,7 +37,7 @@ const getAll = async () => {
     .map(getNewAuthor);
 }
 
-const findById = async (id) => {
+const getById = async (id) => {
   const query = 'SELECT id, first_name, middle_name, last_name FROM authors WHERE id=?';
   const [authorData] = await connection.execute(query, [id]);
 
@@ -69,7 +69,7 @@ const create = async (firstName, middleName, lastName) => connection.execute(
 
 module.exports = {
   getAll,
-  findById,
+  getById,
   isValid,
   create,
 }

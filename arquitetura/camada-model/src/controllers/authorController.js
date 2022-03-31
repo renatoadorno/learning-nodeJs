@@ -1,14 +1,18 @@
-const Author = require('../models/Authors');
+const Author = require('../model/authorModel');
 
-const authorsGetAll = async (_req, res, _next) => {
-  const authors = await Author.getAll();
-  res.status(200).json(authors);
+const list = async (_req, res, next) => {
+  try {
+    const authors = await Author.getAll();
+    res.status(200).json(authors);
+  } catch (e) {
+    next(e)
+  }
 }
 
 const authorsGetById = async (req, res, next) => {
   const { id } = req.params;
 
-  const author = await Author.findById(+id);
+  const author = await Author.getById(+id);
 
   if (!author) return res.status(404).json({ message: 'Not Found' });
 
@@ -28,7 +32,7 @@ const authorsPost = async (req, res) => {
 }
 
 module.exports = {
-  authorsGetAll,
+  list,
   authorsGetById,
   authorsPost,
 }

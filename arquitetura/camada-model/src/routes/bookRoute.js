@@ -2,7 +2,7 @@ const express = require('express');
 
 const {
   booksGetAll,
-} = require('../controllers/Books');
+} = require('../controllers/bookController');
 
 const router = express.Router();
 

@@ -1,14 +1,14 @@
 const express = require('express');
 
 const {
-  authorsGetAll,
+  list,
   authorsGetById,
   authorsPost,
-} = require('../controllers/Authors');
+} = require('../controllers/authorController');
 
 const router = express.Router();
 
-router.get('/', authorsGetAll);
+router.get('/', list);
 router.get('/:id', authorsGetById);
 router.post('/', authorsPost);
 

@@ -1,4 +1,4 @@
-const Book = require('../models/Books');
+const Book = require('../model/bookModel');
 
 const booksGetAll = async (req, res, _next) => {
   const { author_id } = req.query;
