@@ -29,9 +29,8 @@ const serialize = (authorData) => {
 
 // Busca todos os autores do banco.
 const getAll = async () => {
-  const [authors] = await connection.execute(
-    'SELECT id, first_name, middle_name, last_name FROM authors'
-  );
+  const query = 'SELECT id, first_name, middle_name, last_name FROM authors';
+  const [authors] = await connection.execute(query);
 
   return authors
     .map(serialize)
@@ -39,10 +38,8 @@ const getAll = async () => {
 }
 
 const findById = async (id) => {
-  const [authorData] = await connection.execute(
-    'SELECT id, first_name, middle_name, last_name FROM authors WHERE id=?',
-    [id]
-  );
+  const query = 'SELECT id, first_name, middle_name, last_name FROM authors WHERE id=?';
+  const [authorData] = await connection.execute(query, [id]);
 
   if (authorData.length === 0) return null;
 

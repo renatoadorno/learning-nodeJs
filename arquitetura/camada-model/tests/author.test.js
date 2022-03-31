@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const authorModel = require('../src/model/authorModel');
+const authorModel = require('../src/models/Authors');
 
 describe('listar todos os autores', () => {
 
