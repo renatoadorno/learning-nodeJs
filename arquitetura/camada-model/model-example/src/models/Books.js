@@ -1,22 +1,5 @@
 const connection = require('./connection');
 
-// // Cria uma string com o nome completo do autor
-// const getNewAuthor = ({ id, firstName, middleName, lastName }) => {
-//   // Note que `Boolean` é uma função que recebe um parâmetro e retorna true ou false
-//   // nesse caso, se middle_name for `undefined` ou uma string vazia o retorno será `false`
-//   const fullName = [firstName, middleName, lastName]
-//     .filter(name => name)
-//     .join(" ");
-
-//   return {
-//     id,
-//     firstName,
-//     middleName,
-//     lastName,
-//     fullName
-//   }
-// }
-
 // Converte o nome dos campos de snake_case para camelCase
 const serialize = (bookData) => {
   return {
@@ -28,13 +11,24 @@ const serialize = (bookData) => {
 
 // Busca todos os livros do banco.
 const getAll = async () => {
-  const [books] = await connection.execute(
-    'SELECT id, title, author_id FROM books'
-  );
+  const query = 'SELECT id, title, author_id FROM books'
+  const [books] = await connection.execute(query);
 
   return books.map(serialize);
 }
 
+const getByAuthorId = async (authorId) => {
+  const query = 'SELECT * FROM books WHERE author_id=?;'
+  const [books] = await connection.execute(query, [authorId]);
+
+  return books.map(({ id, title, author_id }) => ({
+    id,
+    title,
+    authorId: author_id,
+  }));
+};
+
 module.exports = {
   getAll,
+  getByAuthorId,
 }
