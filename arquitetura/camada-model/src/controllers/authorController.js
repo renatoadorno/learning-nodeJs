@@ -10,13 +10,17 @@ const list = async (_req, res, next) => {
 }
 
 const authorsGetById = async (req, res, next) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  const author = await Author.getById(+id);
-
-  if (!author) return res.status(404).json({ message: 'Not Found' });
-
-  res.status(200).json(author);
+    const author = await Author.getById(id);
+  
+    if (!author) return res.status(404).json({ message: 'Not Found' });
+  
+    res.status(200).json(author);
+  } catch (e) {
+    next(e)
+  }
 }
 
 const authorsPost = async (req, res) => {
