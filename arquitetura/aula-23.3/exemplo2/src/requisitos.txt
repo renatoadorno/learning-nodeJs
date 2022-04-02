@@ -1,0 +1,33 @@
+[ ] Cadastrar livros
+  - um livro tem título, data de lançamento e páginas
+[ ] Listar livros
+[ ] Cliente pode comprar livros
+  - um livro pode ser comprado por vários cliente e o cliente pode comprar vários livros
+  - Somente fazer o registro da compra, não precisa colocar preço
+[ ] Adicionar livros na listagem de um cliente.
+
+
+
+
+
+
+Tabelas 
+  [x] books e customers_books (intermediaria)
+    - database.sql
+Queries
+  [x] Inserir livro 
+  [x] Selecionar livro 
+  [x] Inserir compra (customers_books)
+  [x] Selecionar livros de um cliente
+Model
+  [x] books (create e getAll)
+  [x] customers (buyBook, getCustomerBook)
+Service
+  [x] books (create e getAll)
+    - validar create
+  [x] customers (buyBook, modificar getById para usar a função getCustomerBook)
+    - validar createbuyBook
+Controller 
+  [x] POST /books 
+  [x] GET /books 
+  [x] Refactor GET /customer/:id

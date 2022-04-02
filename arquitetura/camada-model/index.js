@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express')
 const bodyParser = require('body-parser');
 const error = require('./src/middleware/error');
@@ -14,6 +13,6 @@ app.use(express.json());
 
 app.use('/authors', author);
 app.use('/books', book);
-app.use(error);
+// app.use(error);
 
 app.listen(PORT, () => console.log(`Online na porta ${PORT}!`))
